@@ -75,7 +75,6 @@
             position: relative;
             z-index: 3;
             text-shadow: 0 0 30px rgba(255, 170, 0, 0.2);
-            animation: textGlitch 3s infinite alternate;
         }
         header p {
             font-size: 1.05rem;
@@ -293,30 +292,9 @@
             border-bottom: 1px solid rgba(255, 170, 0, 0.05);
         }
 
-        /* TITANIUM COATED ACTUATOR BUTTONS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #05070c;
-            color: var(--amber-glow);
-            border: 2px solid var(--amber-glow);
-            text-decoration: none;
-            padding: 0.85rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-            font-family: monospace;
-        }
-        .btn:hover {
-            background-color: var(--amber-glow);
-            color: var(--bg-dark);
-            box-shadow: 0 0 25px var(--amber-glow);
-            transform: scale(1.03);
+        /* ACTUATOR SUBMISSION LINK STYLES */
+        .card a.btn {
+            display: none !important;
         }
 
         .skills-container {
@@ -325,6 +303,8 @@
             gap: 0.85rem;
             margin-top: 1rem;
         }
+        
+        /* INTERACTIVE HUD MODAL POPUP TRIGGERS */
         .tag {
             background-color: #111622;
             border: 1px solid var(--panel-border);
@@ -333,6 +313,7 @@
             border-radius: 8px;
             font-size: 0.85rem;
             font-weight: 700;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
         .tag:hover {
@@ -340,6 +321,66 @@
             color: var(--amber-glow);
             background: rgba(255, 170, 0, 0.05);
             transform: translateY(-2px);
+        }
+
+        /* MODAL COATING DISPLAY */
+        .hud-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(5, 7, 12, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .hud-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: var(--panel-bg);
+            border: 2px solid var(--amber-glow);
+            box-shadow: 0 0 30px rgba(255, 170, 0, 0.2);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .hud-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-header {
+            color: var(--amber-glow);
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 0.5rem;
+        }
+        .modal-body {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: none; border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem; font-weight: 700;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .modal-close:hover {
+            color: var(--amber-glow);
         }
 
         ul {
@@ -486,7 +527,6 @@
                 <div class="reflection-block" style="margin-bottom: 1rem;">
                     Isolated display formatting structures from domain execution layers. Developed highly reusable view component configurations to guarantee visual stability across dense information modules.
                 </div>
-                <a href="YOUR_GITHUB_REPO_P1_LINK" class="btn" target="_blank">// RUN SOURCE MODULE P1</a>
             </div>
 
             <div class="card">
@@ -499,7 +539,6 @@
                 <div class="reflection-block" style="margin-bottom: 1rem;">
                     Architected non-blocking network integration frameworks that securely synchronize local transactional data against remote cloud repositories[cite: 20, 21]. Contained physical hardware sensor lifecycles within declarative hooks to prevent memory overhead bloat.
                 </div>
-                <a href="YOUR_GITHUB_REPO_P2_LINK" class="btn" target="_blank">// RUN SOURCE MODULE P2</a>
             </div>
         </section>
 
@@ -511,13 +550,13 @@
         <section id="skills">
             <h2>Technical Inventory</h2>
             <div class="skills-container">
-                <div class="tag">Dart / Flutter Core SDK Production Runtime</div>
-                <div class="tag">Firebase Cloud Firestore Real-Time Stream Handlers</div>
-                <div class="tag">Room Local Relational Database Entity Modeling</div>
-                <div class="tag">Asynchronous Networking Engines (Dio / Http Packages)</div>
-                <div class="tag">Native Hardware Sensor Callback Management</div>
-                <div class="tag">Decoupled Architecture State Engine Management</div>
-                <div class="tag">Production Git Distributed Repository Versioning</div>
+                <div class="tag" onclick="launchHUD('Runtime Engine', 'The Dart and Flutter multi-platform compilation pipeline enables rapid declarative layout updates while executing identical native application instructions on multiple targeting devices.')">Dart / Flutter Core SDK Production Runtime</div>
+                <div class="tag" onclick="launchHUD('Cloud Engine', 'Firebase Cloud Firestore establishes secure, real-time reactive streams to broadcast database document state sync changes directly across multiple concurrent hardware nodes.')">Firebase Cloud Firestore Real-Time Stream Handlers</div>
+                <div class="tag" onclick="launchHUD('Persistence System', 'Room Database abstract structures use SQLite bindings and Data Access Objects (DAOs) to cache app parameters, ensuring data stays readable offline without main thread blockage.')">Room Local Relational Database Entity Modeling</div>
+                <div class="tag" onclick="launchHUD('Networking Module', 'Asynchronous REST wrappers using HTTP and Dio handle non-blocking remote server queries, thread parsing, and structural JSON mappings safely across volatile network pathways.')">Asynchronous Networking Engines (Dio / Http Packages)</div>
+                <div class="tag" onclick="launchHUD('Sensor Matrix', 'Hardware API connection modules handle device accelerometer and GPS location callbacks securely, binding sensory data to reactive state controllers without memory leaks.')">Native Hardware Sensor Callback Management</div>
+                <div class="tag" onclick="launchHUD('Architecture Paradigm', 'Decoupled unidirectional state patterns separate logical computational updates from visual component trees, preventing rendering bugs during dynamic data updates.')">Decoupled Architecture State Engine Management</div>
+                <div class="tag" onclick="launchHUD('Version Management', 'Git source control registers atomic development branches and tracks lines of changes to maintain code safety across different deployment variations.')">Production Git Distributed Repository Versioning</div>
             </div>
         </section>
 
@@ -533,9 +572,32 @@
 
     </div>
 
+    <div id="hudModal" class="hud-modal" onclick="closeHUD()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeHUD()">&times;</button>
+            <div id="modalTitle" class="modal-header">SUB-SYSTEM METRICS</div>
+            <div id="modalBody" class="modal-body">DIAGNOSTIC BLOCK CAPTURED</div>
+        </div>
+    </div>
+
     <footer>
         <p>CORE_CORE_V2 // OPERATOR: KAMARUL_A193103 // SYSTEM_CLOCK: 2026 // NODE: UKM_FTSM</p>
     </footer>
+
+    <script>
+        function launchHUD(title, text) {
+            document.getElementById('modalTitle').innerText = '// TECHNICAL DATA: ' + title;
+            document.getElementById('modalBody').innerText = text;
+            document.getElementById('hudModal').classList.add('active');
+        }
+        function closeHUD() {
+            document.getElementById('hudModal').classList.remove('active');
+        }
+        // ESCAPE OVERLAY DETECTOR
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeHUD();
+        });
+    </script>
 
 </body>
 </html>
