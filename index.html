@@ -295,15 +295,15 @@
             display: none !important;
         }
 
-        .skills-container {
+        .skills-container, .resources-container {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 1.5rem;
         }
         
-        /* PREMIUM LUXURY INTERACTIVE CHIPS */
-        .tag {
+        /* PREMIUM LUXURY INTERACTIVE CHIPS & LIST ITERATIONS */
+        .tag, .list-tag {
             background-color: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--panel-border);
             color: #e2e8f0;
@@ -314,7 +314,7 @@
             cursor: pointer;
             transition: all 0.5s var(--luxury-shadow);
         }
-        .tag:hover {
+        .tag:hover, .list-tag:hover {
             border-color: var(--gold-glow);
             color: var(--gold-glow);
             background: rgba(223, 183, 108, 0.03);
@@ -381,24 +381,6 @@
         }
         .modal-close:hover {
             color: #ffffff;
-        }
-
-        ul {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-        li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 1.25rem;
-            color: #cbd5e1;
-        }
-        li::before {
-            content: '―';
-            position: absolute;
-            left: 0;
-            color: var(--gold-glow);
-            font-weight: 300;
         }
 
         footer {
@@ -551,10 +533,10 @@
             <h2>Technical Diagnostics</h2>
             <div class="skills-container">
                 <div class="tag" onclick="launchHUD('Runtime Engine System', 'The Dart and Flutter multi-platform compilation pipeline enables rapid declarative layout updates while executing identical native application instructions across multiple hardware runtimes.')">Dart / Flutter Core SDK Runtime</div>
-                <div class="tag" onclick="launchHUD('Cloud Telemetry Layer', 'Firebase Cloud Firestore establishes secure, real-time reactive streams to broadcast database document state sync changes directly across multiple concurrent hardware nodes.')">Firebase Cloud Firestore Real-Time Sync</div>
-                <div class="tag" onclick="launchHUD('Local Cache Engine', 'Room Database abstract structures use SQLite bindings and Data Access Objects (DAOs) to cache app parameters, ensuring data stays readable offline without main thread blockage.')">Room Local Database Relational Modeling</div>
-                <div class="tag" onclick="launchHUD('Asynchronous Net IO', 'Asynchronous REST wrappers using HTTP and Dio handle non-blocking remote server queries, thread parsing, and structural JSON mappings safely across volatile network pathways.')">Asynchronous Networking Clients (Dio / Http)</div>
-                <div class="tag" onclick="launchHUD('Sensory Control Layer', 'Hardware API connection modules handle device accelerometer and GPS location callbacks securely, binding sensory data to reactive state controllers without memory leaks.')">Native Hardware Sensor Callbacks</div>
+                <div class="tag" onclick="launchHUD('Cloud Telemetry Layer', 'Firebase Cloud Firestore establishes secure, real-time reactive streams to broadcast database document state sync changes directly across multiple concurrent hardware nodes[cite: 21].')">Firebase Cloud Firestore Real-Time Sync</div>
+                <div class="tag" onclick="launchHUD('Local Cache Engine', 'Room Database abstract structures use SQLite bindings and Data Access Objects (DAOs) to cache app parameters, ensuring data stays readable offline without main thread blockage[cite: 20].')">Room Local Database Relational Modeling</div>
+                <div class="tag" onclick="launchHUD('Asynchronous Net IO', 'Asynchronous REST wrappers using HTTP and Dio handle non-blocking remote server queries, thread parsing, and structural JSON mappings safely across volatile network pathways[cite: 22].')">Asynchronous Networking Clients (Dio / Http)</div>
+                <div class="tag" onclick="launchHUD('Sensory Control Layer', 'Hardware API connection modules handle device accelerometer and GPS location callbacks securely, binding sensory data to reactive state controllers without memory leaks[cite: 23].')">Native Hardware Sensor Callbacks</div>
                 <div class="tag" onclick="launchHUD('Architecture Engine', 'Decoupled unidirectional state patterns separate logical computational updates from visual component trees, preventing rendering bugs during dynamic data updates.')">Decoupled Architecture State Controls</div>
                 <div class="tag" onclick="launchHUD('Repository Ledger', 'Git source control registers atomic development branches and tracks lines of changes to maintain code safety across different deployment variations.')">Production Git Control Versioning</div>
             </div>
@@ -562,12 +544,12 @@
 
         <section id="resources">
             <h2>References & Blueprints</h2>
-            <ul>
-                <li>Google Firebase Cloud Infrastructure Protocols & Real-Time Sync Framework Guidelines</li>
-                <li>Flutter / Android Native Hardware Sensor Package Lifecycle Specifications Documentation</li>
-                <li>RESTful API Endpoints & Public Web Infrastructure Integration Architecture Guide</li>
-                <li><em>Interface styling layouts and graphic presentations optimized utilizing automated design generation systems.</em></li>
-            </ul>
+            <div class="resources-container">
+                <div class="list-tag" onclick="launchHUD('Firebase Sync Protocol', 'Google Firebase infrastructure configuration metrics detailing standard document validation tokens, offline replication cycles, and automatic conflict reconciliation mechanisms across distributed client devices[cite: 21].')">Google Firebase Architecture Specifications</div>
+                <div class="list-tag" onclick="launchHUD('Sensor Framework Specs', 'Official native development blueprints covering background hardware polling restrictions, low-latency sampling states, and memory-safe observer lifecycle registration patterns[cite: 23].')">Flutter / Android Native Hardware Sensor Package Lifecycle</div>
+                <div class="list-tag" onclick="launchHUD('REST Architecture Mappings', 'Comprehensive network transport schemas and interface mapping definitions for asynchronous HTTP execution engines, detailing thread pool isolates and custom parsing configurations[cite: 22].')">RESTful API Endpoints & Public Web Infrastructure Integration</div>
+                <div class="list-tag" onclick="launchHUD('Presentation Optimization Acknowledgement', 'Verification ledger confirming the use of specialized algorithmic systems for front-end interface structure refinement, responsive layouts, and performance profiling updates.')">Generative Front-End Presentation Optimizations</div>
+            </div>
         </section>
 
     </div>
@@ -581,7 +563,7 @@
     </div>
 
     <footer>
-        <p>BUILD: LUX_CORE_V4 // OPERATOR: KAMARUL_A193103 // YEAR: 2026 // NODE: UKM_FTSM</p>
+        <p>BUILD: LUX_CORE_V5 // OPERATOR: KAMARUL_A193103 // YEAR: 2026 // NODE: UKM_FTSM</p>
     </footer>
 
     <script>
